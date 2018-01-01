@@ -9,9 +9,19 @@
   </head>
 
   <body>
+    
+    <% if logged_in? %>
+      <div>
+        <p>Welcome <%= current_user.name %> |
+        <%= link_to "Logout", logout_path, method: :delete %></p>
+      </div>
+    <% end %>
+      
     <% flash.each do |key, value| %>
       <p id='<%= key %>'><%= value %></p>
     <% end %>
+    
     <%= yield %>
+    
   </body>
 </html>
