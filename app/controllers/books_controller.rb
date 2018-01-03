@@ -1,11 +1,15 @@
 class BooksController < ApplicationController
+  skip_before_action :ensure_login, only: [:index, :show]
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   # GET /books
   # GET /books.json
   def index
-    # @books = Book.all
-    @books = current_user.books.all
+    if !logged_in?
+      @books = Book.all
+    else 
+      @books = current_user.books.all
+    end
   end
 
   # GET /books/1
@@ -67,12 +71,15 @@ class BooksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book
-      # @book = Book.find(params[:id])
-      @book = current_user.books.find(params[:id])
+      if !logged_in?
+        @book = Book.find(params[:id])
+      else
+        @book = current_user.books.find(params[:id])
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:name, :author)
+      params.require(:book).permit(:image, :name, :author)
     end
 end
