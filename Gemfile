@@ -12,6 +12,8 @@ gem 'rails', '~> 5.1.4'
 gem 'sqlite3', group: :development
 # Use postgre as the database for Active Record on Production
 gem 'pg', group: :production
+# Use rails_12factor to use the assets
+gem 'rails_12factor', group: :production
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
