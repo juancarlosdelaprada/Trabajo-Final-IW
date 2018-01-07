@@ -10,14 +10,17 @@ class SessionsController < ApplicationController
     password = params[:reviewer][:password]
     if reviewer && reviewer.authenticate(password)
       session[:reviewer_id] = reviewer.id
-      redirect_to root_path, notice: "Logged in successfully"
+      flash[:success] = "Logged in successfully"
+      redirect_to books_path
     else 
-      redirect_to login_path, alert: "Logged in unsuccesfully"
+      flash[:danger] = "Logged in unsuccesfully"
+      redirect_to login_path
     end
   end
 
   def destroy
     reset_session
-    redirect_to login_path, notice: "You have been Logged out"
+    flash[:success] = "You have been Logged out"
+    redirect_to login_path
   end
 end

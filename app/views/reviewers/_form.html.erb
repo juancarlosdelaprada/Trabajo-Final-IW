@@ -1,34 +1,62 @@
-<%= form_with(model: reviewer, local: true) do |form| %>
-  <% if reviewer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(reviewer.errors.count, "error") %> prohibited this reviewer from being saved:</h2>
-
-      <ul>
-      <% reviewer.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="formulario reviewer col-lg-12">
+  <%= form_with(model: reviewer, local: true) do |form| %>
+    
+    <% if reviewer.errors.any? %>
+      <div  class="alert alert-danger" role="alert" style="text-align: left">
+        <h4><%= pluralize(reviewer.errors.count, "error") %> prohibited this reviewer from being saved:</h4>
+        <ul>
+        <% reviewer.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+    
+    <div class="form-group">
+      <%= form.label :name %>
+      <%= form.text_field :name, id: :reviewer_name, class: "form-control", required: true %>
     </div>
+  
+    <div class="form-group">
+      <%= form.label :password %>
+      <%= form.password_field :password, id: :reviewer_password_digest, class: "form-control", required: true %>
+    </div>
+    
+    <div class="form-group">
+      <%= form.label :password_confirmation%>
+      <%= form.password_field :password_confirmation, id: :reviewer_password_digest2, class: "form-control", required: true %>
+    </div>
+    
+    <div style="margin-bottom: 0.90%">
+      <%= recaptcha_tags %>
+    </div>
+    
+    <%= submit_tag("Create Reviewer", class: "btn btn-primary") %>
+     
   <% end %>
-  
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :reviewer_name %>
-  </div>
+</div>
 
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.text_field :password, id: :reviewer_password_digest %>
-  </div>
-  
-  <div class="field">
-    <%= form.label :password_confirmation %>
-    <%= form.text_field :password_confirmation, id: :reviewer_password_digest2 %>
-  </div>
-  
-  <%= recaptcha_tags %>
-  
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+<script>
+    $('[name="reviewer[name]"]')
+    	.on('invalid', function() {
+    		return this.setCustomValidity("Name can't be blank.");
+    	})
+    	.on('input', function() {
+    		return this.setCustomValidity('');
+    	});
+    	
+	$('[name="reviewer[password]"]')
+    	.on('invalid', function() {
+    		return this.setCustomValidity("Password can't be blank.");
+    	}).on('input', function() {
+    		return this.setCustomValidity('');
+    	});
+    	
+	$('[name="reviewer[password_confirmation]"]')
+    	.on('invalid', function() {
+    		return this.setCustomValidity("Password confirmation can't be blank.");
+    	}).on('input', function() {
+    		return this.setCustomValidity('');
+    	});
+</script>

@@ -30,6 +30,14 @@ gem 'jbuilder', '~> 2.5'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+# Use Bootstrap to add style
+gem 'bootstrap', '~> 4.0.0.beta3'
+# Use jQuery
+gem 'jquery-rails'
+# Use Font-Awesome
+gem 'font-awesome-rails'
+# Use Bootstrap-Filestyle
+gem 'bootstrap-filestyle-rails'
 # Use Paperclip as an easy file attachment library for Active Record
 gem 'paperclip', '~> 5.0.0'
 #Use reCAPTCHA plugin to add helpers for the reCAPTCHA API

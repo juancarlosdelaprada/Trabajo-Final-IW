@@ -1,7 +1,21 @@
-<div class="note">
-    <div>
-        <%= content_tag :span, "#{note.title} (hace #{time_ago_in_words note.created_at}).", class: "note-title" %>
-        <%= link_to "Delete Note", [@book, note], method: :delete %>
+<div class="note-book" style="margin-bottom: 0.5%">
+    <div style="text-align: right; padding-right: 0.5%; padding-top: 0.5%">
+    <b style="float: left; padding-left: 0.5%;"><%= note.title %></b>
+    <% if logged_in? %>
+        <a class="borrar" data-confirm="Are you sure?" title="Delete" rel="nofollow" data-method="delete" href="<%= book_note_path(@book,note)%>"><%= fa_icon "times" %></a>
+    <% else %>
+        <br>
+    <% end %>
     </div>
-    <div><%= simple_format note.note %></div>
+    <div style="text-align: left; padding-left: 0.5%; padding-top: 0.5%">
+        <%= simple_format note.note %>
+    </div>
+    <div style="text-align: right; padding-right: 0.5%; padding-bottom: 0.5%">
+        <span class="comentario">
+            <i>
+                <%= Reviewer.find(@book.reviewer_id).name %>
+                (<%= time_ago_in_words note.created_at %> ago).
+            </i>
+        </span>
+    </div>
 </div>

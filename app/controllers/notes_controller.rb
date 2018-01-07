@@ -4,16 +4,19 @@ class NotesController < ApplicationController
     def create
         @note = @book.notes.new(note_params)
         if @note.save
-            redirect_to @book, notice: 'Note was successfullt created.'
+            flash[:success] = "Note was successfully created."
+            redirect_to @book
         else
-            redirect_to @book, alert: 'Unable to add Note!!.'
+            flash[:danger] = "Unable to add Note! Complete all fields."
+            redirect_to @book
         end
     end
     
     def destroy
         @note = @book.notes.find(params[:id])
         @note.destroy
-        redirect_to @book, notice: 'Note was succesfully destroyed.'
+        flash[:success] = "Note was succesfully destroyed."
+        redirect_to @book
     end
     
     private

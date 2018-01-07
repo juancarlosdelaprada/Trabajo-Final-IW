@@ -1,13 +1,39 @@
-<h1>Login</h1>
+<h1 class="titulo">Login</h1>
+
+<br>
+
+<div class="formulario login col-lg-12">
 <%= form_for(:reviewer, url: sessions_path) do |f| %>
-    <div class="field">
-        <%= f.label :name %> <br />
-        <%= f.text_field :name %>
+
+    <div class="form-group">
+        <%= f.label :name %> 
+        <%= f.text_field :name, class: "form-control", required: true %>
     </div>
-    <div class="field">
-        <%= f.label :password %> <br />
-        <%= f.password_field :password %>
+    
+    <div class="form-group">
+        <%= f.label :password %> 
+        <%= f.password_field :password, class: "form-control", required: true %>
     </div>
-    <p></p>
-    <div class="actions"><%= f.submit "Login" %></div>
+    
+    <%= submit_tag("Enter", class: "btn btn-primary") %>
 <% end %>
+</div>
+
+<br><br>
+
+<script>
+    $('[name="reviewer[name]"]')
+    	.on('invalid', function() {
+    		return this.setCustomValidity("Name can't be blank.");
+    	})
+    	.on('input', function() {
+    		return this.setCustomValidity('');
+    	});
+    	
+	$('[name="reviewer[password]"]')
+    	.on('invalid', function() {
+    		return this.setCustomValidity("Password can't be blank.");
+    	}).on('input', function() {
+    		return this.setCustomValidity('');
+    	});
+</script>

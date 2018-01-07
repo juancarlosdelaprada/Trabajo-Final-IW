@@ -1,6 +1,14 @@
-<h1>Editing Book</h1>
+<h1 class="titulo">Editing Book</h1>
+
+<br>
 
 <%= render 'form', book: @book %>
 
-<%= link_to 'Show', @book %> |
-<%= link_to 'Back', books_path %>
+<br>
+
+<div class="btn-group" role="group" aria-label="Basic example">
+    <%= link_to 'Show', @book, class: "btn btn-secondary" %>
+    <%= link_to 'Back', books_path, class: "btn btn-secondary" %>
+</div>
+
+<br><br>

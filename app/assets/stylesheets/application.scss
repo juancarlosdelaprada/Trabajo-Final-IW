@@ -1,0 +1,259 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap";
+@import "font-awesome";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+
+@media screen and (max-width: 319px){
+    .g-recaptcha {
+        transform:scale(0.68);-webkit-transform:scale(0.68);
+        transform-origin:0 0;-webkit-transform-origin:0 0;
+    }
+}
+
+@media screen and (min-width: 319px) and (max-width: 445px){
+    .g-recaptcha {
+        transform:scale(0.8);-webkit-transform:scale(0.8);
+        transform-origin:0 0;-webkit-transform-origin:0 0;
+    }
+}
+
+.titulo {
+    text-align: left; 
+    margin-top: 1.5%;
+}
+
+.formulario {
+    padding-left:7.5%;
+    padding-right:7.5%;
+    padding-top:2.5%;
+    padding-bottom:2.5%;
+    border-radius: 15px;
+}
+
+.login {
+    background-color: #FDFBE5;
+    border: 1px solid #FCF8C0;
+}
+
+.book {
+    background-color: #D6FDDF;
+    border: 1px solid #BCFDCA;
+}
+
+.note-book {
+    background-color: #F1FDD9;
+    border: 1px solid #E0FAB2;
+}
+
+.note {
+    background-color: #FEE7C9;
+    border: 1px solid #FBC88A;
+}
+
+.reviewer {
+   background-color: #FDDFFA;
+   border: 1px solid #FDCDF8;
+}
+
+.nuevo {
+    color: #21B01F;
+}
+
+.nuevo :hover {
+    color: #14EE10;
+}
+
+.mostrar {
+    color: #1A57BA;
+}
+
+.mostrar :hover {
+    color: #0062FE;
+}
+
+.editar {
+    color: #979321;
+}
+
+.editar :hover {
+    color: #DCD510;
+}
+
+.borrar {
+    color: #BD2424;
+}
+
+.borrar :hover {
+    color: #FD0000;
+}
+
+.btn-secondary {
+    border: 1px solid #D7D7D7;    
+}
+
+.btn-secondary :hover {
+    border: 1px solid #D7D7D7;    
+}
+
+.dropdown-menu {
+    background-color: #800080;
+}
+
+.dropdown-menu :hover {
+    background-color: #800080;
+    color: white;
+}
+
+.dropdown-item {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.form-group {
+    text-align: left;  
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+}
+
+.panel-heading {
+    background-color: #FAFAFA;
+    border-bottom: 1px solid #E6E6E6;
+    text-align: left;
+    padding: 0.5% 0% 0% 0.5%;
+}
+
+.panel-body {
+    padding: 0.5%;
+}
+
+.panel {
+    border: 1px solid #E6E6E6;
+}
+
+.cuenta {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.cuenta :hover {
+    color: white;
+}
+
+#cabecera {
+	background: radial-gradient(#380B61 25%, #2F0B3A  40%, #6A0888 55%, #A901DB  65%,#D358F7  90%);
+}
+
+#padre-logo {
+	position: relative;
+	height: 160px;
+	padding: 0.5%;
+}
+
+@media screen and (min-width: 1000px) {
+    #logo {
+    	margin: 0;
+    	padding: 1.5%;
+        position: absolute;
+    	top: 50%;
+    	left: 50%;
+        margin-right: -50%;
+    	transform: translate(-50%, -50%);
+    	width: 20%;
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1000px) {
+    #logo {
+    	margin: 0;
+    	padding: 1.5%;
+        position: absolute;
+    	top: 50%;
+    	left: 50%;
+        margin-right: -50%;
+    	transform: translate(-50%, -50%);
+    	width: 35%;
+    }
+}
+
+@media screen and (min-width: 459px) and (max-width: 800px) {
+    #logo {
+    	margin: 0;
+    	padding: 1.5%;
+        position: absolute;
+    	top: 50%;
+    	left: 50%;
+        margin-right: -50%;
+    	transform: translate(-50%, -50%);
+    	width: 45%;
+    }
+}
+
+@media screen and (max-width: 459px) {
+    #logo {
+    	margin: 0;
+    	padding: 1.5%;
+        position: absolute;
+    	top: 50%;
+    	left: 50%;
+        margin-right: -50%;
+    	transform: translate(-50%, -50%);
+    	width: 75%;
+    }
+}
+
+#container {
+    position: relative;
+    min-height: 100%;
+}
+
+#body {
+  padding-bottom: 142.5px;
+  margin: 0;
+}
+
+#pie {
+	position: absolute;
+    bottom: 0;
+    padding: 0.5%;
+	width: 100%;
+	height: 142.5px;
+	background-color: #800080;
+	color: rgba(255,255,255,0.5);
+	text-align: center;
+}
+
+.group-span-filestyle {
+    background-color: #868e96;
+    color: white;
+    border-radius: 0px 5px 5px 0px;
+    border-color: #f9f9f9;
+}
+
+.group-span-filestyle :hover {
+    border-color: #6c757d;
+}
+
+.bootstrap-filestyle {
+    height: 38px;
+}

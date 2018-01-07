@@ -8,7 +8,8 @@ class ReviewersController < ApplicationController
   def create
     @reviewer = Reviewer.new(reviewer_params)
     if verify_recaptcha(model: @reviewer) && @reviewer.save
-      redirect_to books_path, notice: 'Reviewer was successfully created.' 
+      flash[:success] = 'Reviewer was successfully created.'
+      redirect_to books_path 
     else
       render :new 
     end

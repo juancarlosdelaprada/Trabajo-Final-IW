@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  root 'books#index'
+  root 'sessions#new'
+  
   resources :books do
     resources :notes, only: [:create, :destroy]
   end
