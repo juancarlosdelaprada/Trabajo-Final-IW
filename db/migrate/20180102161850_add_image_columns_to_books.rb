@@ -4,6 +4,6 @@ class AddImageColumnsToBooks < ActiveRecord::Migration[5.1]
   end
   
   def down
-    remove_attachment :users, :avatar
+    remove_attachment :books, :image
   end
 end

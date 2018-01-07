@@ -24,5 +24,5 @@ Book.create! [
 b = Book.find_by(name: "Eloquent Ruby")
 b.notes.create! [
     { title: "Wow", note: "Gran libro para aprender Ruby" },
-    { title: "Greate", note: "Perfecto para iniciarte" }
+    { title: "Great", note: "Perfecto para iniciarte" }
 ]
